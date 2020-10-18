@@ -1,0 +1,14 @@
+{
+    "name": "iu-msis/2-simple-docker-js-shirley-msis",
+    "description": "HW 7 project",
+    "license": "private",
+    "authors": [{
+        "name": "Shirley Liu"
+    }],
+    "require": {
+      "ramsey/uuid": "^4.1"
+    },
+    "autoload": {
+        "classmap": ["class/DbConnection.php"]
+    }
+}
