@@ -6,22 +6,22 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM Certification';
+$sql = 'SELECT * FROM Comments';
 $vars = [];
 
-if (isset($_GET['name'])) {
+if (isset($_GET['commentText'])) {
   // This is an example of a parameterized query
-  $sql = 'SELECT * FROM Certification WHERE name = ?';
-  $vars = [ $_GET['name'] ];
+  $sql = 'SELECT * FROM Comments WHERE commentText = ?';
+  $vars = [ $_GET['commentText'] ];
 }
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$certifications = $stmt->fetchAll();
+$comments = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($certifications, JSON_PRETTY_PRINT);
+$json = json_encode($comments, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');
