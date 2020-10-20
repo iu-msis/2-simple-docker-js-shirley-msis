@@ -11,7 +11,7 @@
 
 
   <!--content-->
-  <title>My Book Page</title>
+  <title>My Comments Page</title>
 
 </head>
 <body>
@@ -22,8 +22,8 @@
     <a href="books.html">Books</a>
     <a href="comments.html">Comments</a>
   </div>
-
-<h1>Comments List</h1>
+<div id="commentsPage">
+  <h1>Comments List</h1>
         <table id="commentTable" class="table">
           <thead>
             <tr>
@@ -32,23 +32,21 @@
             </tr>
           </thead>
           <tbody id="commentTableBody">
-            <tr>
-              <!--th scope="row">1</th>-->
-              <td><span class="name">{{certs.id}}</span></td>
-              <td><span class="name">{{certs.name}}</span></td>
+            <tr class="comments" v-for="comments in comments">
+              <td><span class="name">{{comments.id}}</span></td>
+              <td><span class="name">{{comments.commentText}}</span></td>
             </tr>
           </tbody>
         </table><br/>
 
-<h1>Create Comment</h1>
-    <div id="commentsPage">
-        <form id="newCommentForm" v-on:submit.prevent="createCerts()">
-           <div class="certs">
-             <input type="text" id="commentText" v-model="newCert.agency" class="form-control" placeholder="enter new comment" required>
+  <h1>Create Comment</h1>
+        <form id="newCommentForm" v-on:submit="createComments()">
+           <div class="comments">
+             <input type="text" id="commentText" v-model="newComments.commentText" class="form-control" placeholder="enter new comment" required>
            </div><br/>
            <button class="btn btn-success" id="submitNewComment" type="submit" value="Create Certs">Submit</button>
         </form>
-    </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
