@@ -15,15 +15,12 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Certification (agency, name, city, expirationPeriod)
-  VALUES (?, ?, ?, ?)'
+  'INSERT INTO Comments (commentText)
+  VALUES (?)'
 );
 
 $stmt->execute([
-  $_POST['agency'],
-  $_POST['name'],
-  $_POST['city'],
-  $_POST['expirationPeriod']
+  $_POST['commentText']
 ]);
 
 // If needed, get auto-generated PK from DB
@@ -33,4 +30,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../records/');
+header('Location: ../comments/');
