@@ -1,31 +1,26 @@
 var app = new Vue({
   el: '#commentsPage',
   data: {
-    certs:[{
-      agency:'',
-      name:'',
-      city:'',
-      expirationPeriod:''
+    comments:[{
+      id:'',
+      commentText:''
     }],
-    newCert: {
-      agency:'',
-      name:'',
-      city:'',
-      expirationPeriod:''
+    newComments: {
+      commentText:''
     }
   },
   methods: {
-    fetchCerts(){
-      fetch('api/certification/')
+    fetchComments(){
+      fetch('api/comments/')
       .then( response => response.json() )
       .then( json => {
-        this.certs = json;
-        console.log(this.certs)});
+        this.comments = json;
+        console.log(this.comments)});
       },
-     createCerts(){
-       fetch('api/certification/post.php', {
+     createComments(){
+       fetch('api/comments/create.php', {
          method:'POST',
-         body: JSON.stringify(this.newCert),
+         body: JSON.stringify(this.newComments),
          headers: {
            "Content-Type": "application/json; charset=utf-8"
          }
@@ -33,22 +28,19 @@ var app = new Vue({
        .then( response => response.json() )
        .then( json => {
          console.log("Returned from post:", json);
-         this.certs.push(json[0]);
-         this.newCert = this.newCertData();
+         this.comments.push(json[0]);
+         this.newComments = this.newCommentsData();
       });
         console.log("Great Scott!!!");
-        console.log(this.newCert);
+        console.log(this.newComments);
      },
-     newCertData() {
+     newCommentsData() {
        return {
-         agency:'',
-         name:'',
-         city:'',
-         expirationPeriod:''
+         commentText:''
        }
      }
 },
  created() {
-  this.fetchCerts();
+  this.fetchComments();
  }
 });
