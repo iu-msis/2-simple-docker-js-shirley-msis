@@ -6,16 +6,18 @@ var app = new Vue({
       commentText:''
     }],
     newComments: {
+      id:'',
       commentText:''
     }
   },
   methods: {
     fetchComments(){
-      fetch('api/comments/')
+      fetch('api/comments/index.php')
       .then( response => response.json() )
       .then( json => {
         this.comments = json;
-        console.log(this.comments)});
+        console.log(this.comments);
+      });
       },
      createComments(){
        fetch('api/comments/create.php', {
@@ -28,7 +30,7 @@ var app = new Vue({
        .then( response => response.json() )
        .then( json => {
          console.log("Returned from post:", json);
-         this.comments.push(json[0]);
+         this.comments = json;
          this.newComments = this.newCommentsData();
       });
         console.log("hello :)");
@@ -36,6 +38,7 @@ var app = new Vue({
      },
      newCommentsData() {
        return {
+         id:'',
          commentText:''
        }
      }
