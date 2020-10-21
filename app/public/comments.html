@@ -40,7 +40,7 @@
         </table><br/>
 
   <h1>Create Comment</h1>
-        <form id="newCommentForm" v-on:submit="createComments()">
+        <form id="newCommentForm" v-on:submit.prevent="createComments()">
            <div class="comments">
              <input type="text" id="commentText" v-model="newComments.commentText" class="form-control" placeholder="enter new comment" required>
            </div><br/>
