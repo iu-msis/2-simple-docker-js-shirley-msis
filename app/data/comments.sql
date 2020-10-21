@@ -1,7 +1,7 @@
 USE msis;
 CREATE TABLE Comments (
- id int AUTO_INCREMENT,
- commentText varchar(255),
+ id INTEGER AUTO_INCREMENT,
+ commentText TEXT NOT NULL,
  PRIMARY KEY (id)
  );
 
