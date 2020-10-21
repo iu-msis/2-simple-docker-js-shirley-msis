@@ -31,7 +31,7 @@ var app = new Vue({
          this.comments.push(json[0]);
          this.newComments = this.newCommentsData();
       });
-        console.log("Great Scott!!!");
+        console.log("hello :)");
         console.log(this.newComments);
      },
      newCommentsData() {
