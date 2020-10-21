@@ -8,6 +8,7 @@
   <!-- stylesheets-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:;base64,=">
 
 
   <!--content-->
@@ -32,9 +33,9 @@
             </tr>
           </thead>
           <tbody id="commentTableBody">
-            <tr class="comments" v-for="comments in comments">
-              <td><span class="name">{{comments.id}}</span></td>
-              <td><span class="name">{{comments.commentText}}</span></td>
+            <tr class="comments" v-for="com in comments">
+              <td><span class="name">{{com.id}}</span></td>
+              <td><span class="name">{{com.commentText}}</span></td>
             </tr>
           </tbody>
         </table><br/>
@@ -44,7 +45,7 @@
            <div class="comments">
              <input type="text" id="commentText" v-model="newComments.commentText" class="form-control" placeholder="enter new comment" required>
            </div><br/>
-           <button class="btn btn-success" id="submitNewComment" type="submit" value="Create Certs">Submit</button>
+           <button class="btn btn-primary" id="submitNewComment" type="submit" value="Create Certs">Submit</button>
         </form>
 </div>
 
